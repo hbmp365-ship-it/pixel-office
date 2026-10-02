@@ -4,6 +4,7 @@
   "version": "0.1.0",
   "type": "module",
   "scripts": {
+    "predev": "node -e \"require('fs').mkdirSync('dist',{recursive:true})\"",
     "dev": "concurrently -n web,worker -c cyan,magenta \"vite\" \"wrangler dev\"",
     "dev:web": "vite",
     "dev:worker": "wrangler dev",

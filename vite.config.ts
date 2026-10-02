@@ -9,6 +9,8 @@ export default defineConfig({
     // Fixed port: fail instead of silently moving to another port when taken.
     port: 1004,
     strictPort: true,
+    // Open the browser automatically on `npm run dev`.
+    open: true,
     proxy: {
       '/ws': {
         target: 'ws://127.0.0.1:8787',

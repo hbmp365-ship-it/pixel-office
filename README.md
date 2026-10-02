@@ -46,7 +46,7 @@ npm install
 npm run dev          # Vite(1004) + wrangler dev(8787) 동시 실행
 ```
 
-브라우저에서 http://localhost:1004 을 엽니다. (포트는 `vite.config.ts`에 1004로 고정되어 있습니다) WebSocket은 Vite가 8787로 프록시합니다.
+브라우저가 자동으로 http://localhost:1004 을 엽니다. (포트는 `vite.config.ts`에 1004로 고정되어 있습니다) WebSocket은 Vite가 8787로 프록시합니다.
 여러 명 접속을 확인하려면 탭을 두 개 열거나 다른 기기에서 접속하면 됩니다.
 
 빌드 결과 그대로 확인하려면:
@@ -65,6 +65,18 @@ npm run deploy
 ```
 
 `https://pixel-office.<계정명>.workers.dev` 주소가 나오고, 그 URL을 팀원에게 공유하면 됩니다.
+
+### GitHub에서 자동 배포
+
+`main`에 push하면 `.github/workflows/deploy.yml`이 자동으로 배포합니다. 처음 한 번만 설정하세요.
+
+1. Cloudflare 대시보드 → My Profile → API Tokens → **Edit Cloudflare Workers** 템플릿으로 토큰 생성
+2. GitHub 레포 → Settings → Secrets and variables → Actions 에 두 개 추가
+   - `CLOUDFLARE_API_TOKEN`: 위에서 만든 토큰
+   - `CLOUDFLARE_ACCOUNT_ID`: Cloudflare 대시보드 오른쪽의 Account ID
+3. Actions 탭 → Deploy to Cloudflare → Run workflow (또는 `main`에 push)
+
+시크릿이 없으면 배포 단계는 경고만 남기고 건너뜁니다.
 워커 이름을 바꾸려면 `wrangler.jsonc`의 `name`을 수정하세요.
 
 ## 설계 메모
