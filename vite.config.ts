@@ -6,7 +6,9 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   server: {
-    port: 5173,
+    // Fixed port: fail instead of silently moving to another port when taken.
+    port: 1004,
+    strictPort: true,
     proxy: {
       '/ws': {
         target: 'ws://127.0.0.1:8787',

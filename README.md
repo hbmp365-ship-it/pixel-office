@@ -43,10 +43,10 @@ worker/
 
 ```bash
 npm install
-npm run dev          # Vite(5173) + wrangler dev(8787) 동시 실행
+npm run dev          # Vite(1004) + wrangler dev(8787) 동시 실행
 ```
 
-브라우저에서 http://localhost:5173 을 엽니다. WebSocket은 Vite가 8787로 프록시합니다.
+브라우저에서 http://localhost:1004 을 엽니다. (포트는 `vite.config.ts`에 1004로 고정되어 있습니다) WebSocket은 Vite가 8787로 프록시합니다.
 여러 명 접속을 확인하려면 탭을 두 개 열거나 다른 기기에서 접속하면 됩니다.
 
 빌드 결과 그대로 확인하려면:
